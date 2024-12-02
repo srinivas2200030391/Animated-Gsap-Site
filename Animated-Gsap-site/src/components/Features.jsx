@@ -97,16 +97,16 @@ export const BentoCard = ({ src, title, description, isComingSoon }) => {
 };
 
 const Features = () => (
-  <section className="bg-black pb-52">
+  <section className="bg-black pb-52" id="features">
     <div className="container mx-auto px-3 md:px-10">
       <div className="px-5 py-32">
         <p className="font-circular-web text-lg text-blue-50">
-          Into the Metagame Layer
+          Step Into the World of Imaginarium
         </p>
         <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50">
-          Immerse yourself in a rich and ever-expanding universe where a vibrant
-          array of products converge into an interconnected overlay experience
-          on your world.
+          Immerse yourself in a captivating digital gallery where artistic
+          creations converge into a boundless realm of inspiration and
+          imagination.
         </p>
       </div>
 
@@ -118,7 +118,7 @@ const Features = () => (
               radia<b>n</b>t
             </>
           }
-          description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
+          description="A cutting-edge digital gallery experience, merging art and technology to create an immersive virtual world."
           isComingSoon
         />
       </BentoTilt>
@@ -132,7 +132,7 @@ const Features = () => (
                 zig<b>m</b>a
               </>
             }
-            description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
+            description="A dynamic NFT collection, blending art with the future of digital ownership and expansion."
             isComingSoon
           />
         </BentoTilt>
@@ -145,7 +145,7 @@ const Features = () => (
                 n<b>e</b>xus
               </>
             }
-            description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
+            description="A unique space where social interaction and digital art converge in a gamified experience."
             isComingSoon
           />
         </BentoTilt>
@@ -158,7 +158,7 @@ const Features = () => (
                 az<b>u</b>l
               </>
             }
-            description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
+            description="AI-driven art that evolves with your interactions, bringing your gallery experience to life."
             isComingSoon
           />
         </BentoTilt>

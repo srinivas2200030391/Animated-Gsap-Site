@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Button from "./Button";
-import { TiLocationArrow } from "react-icons/ti";
+import { TiBrush } from "react-icons/ti";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
-const navItems = ["Nexus", "Vault", "Prologue", "About", "Contact"];
+const navItems = ["Home", "About", "Features", "Story", "Contact"];
 export default function NavBar() {
   const [isAudioPlaying, SetIsAudioPlaying] = React.useState(false);
   const [isIndicatorActive, setIsIndicatorActive] = React.useState(false);
@@ -70,8 +70,8 @@ export default function NavBar() {
             <img src="/img/logo.png" alt="logo" className="w-10" />
             <Button
               id="product-button"
-              title="Products"
-              rightIcon={<TiLocationArrow />}
+              title="Sign In"
+              rightIcon={<TiBrush />}
               containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
             />
           </div>
@@ -80,7 +80,11 @@ export default function NavBar() {
               {navItems.map((item) => (
                 <a
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  href={
+                    item.toLowerCase() === "home"
+                      ? "#"
+                      : `#${item.toLowerCase()}`
+                  }
                   className="nav-hover-btn"
                   onClick={(e) => handleLinkClick(e, `#${item.toLowerCase()}`)}>
                   {item}
