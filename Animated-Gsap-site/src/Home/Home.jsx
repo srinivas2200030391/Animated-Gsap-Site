@@ -7,7 +7,7 @@ import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 export default function Home() {
   return (
-    <div>
+    <div className="min-w-full max-w-full">
       <NavBar />
       <Hero />
       <About />

@@ -82,7 +82,7 @@ export default function NavBar() {
               id="product-button"
               title="Sign In"
               rightIcon={<TiBrush />}
-              containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
+              containerClass="bg-blue-50 md:w-full md:max-w-xs w-full max-w-md mx-auto flex items-center justify-center gap-1"
             />
           </div>
 
