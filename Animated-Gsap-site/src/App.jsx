@@ -1,47 +1,84 @@
-import { Routes, Route } from "react-router-dom";
-import About from "./components/About";
-import Hero from "./components/Hero";
-import NavBar from "./components/NavBar";
-import Features from "./components/Features";
-import Story from "./components/Story";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
-import SignIn from "./components/SignIn"; // Import the SignIn component
-import SignUp from "./components/SignUp";
-import ArtistDashboard from "./components/artistDashboard";
-import AdminDashboard from "./components/adminDashboard";
-import VisitorDashboard from "./components/visitorDashboard";
-import CuratorDashboard from "./components/curatorDashboard";
+
+import Home from "./Home/index.jsx";
+import { useEffect, useState } from "react";
+import AdminDashboard from "./components/AdminDashboard";
+import ArtistDashboard from "./components/ArtistDashboard";
+import CuratorDashboard from "./components/CuratorDashboard";
+import VisitorDashboard from "./components/VisitorDashboard";
 
 function App() {
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+  const [isArtistLoggedIn, setIsArtistLoggedIn] = useState(false);
+  const [isCuratorLoggedIn, setIsCuratorLoggedIn] = useState(false);
+  const [isVisitorLoggedIn, setIsVisitorLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Retrieve login states from localStorage
+    const adminLoggedIn = localStorage.getItem("isAdminLoggedIn") === "true";
+    const artistLoggedIn = localStorage.getItem("isArtistLoggedIn") === "true";
+    const curatorLoggedIn =
+      localStorage.getItem("isCuratorLoggedIn") === "true";
+    const visitorLoggedIn =
+      localStorage.getItem("isVisitorLoggedIn") === "true";
+
+    setIsAdminLoggedIn(adminLoggedIn);
+    setIsArtistLoggedIn(artistLoggedIn);
+    setIsCuratorLoggedIn(curatorLoggedIn);
+    setIsVisitorLoggedIn(visitorLoggedIn);
+  }, []);
+
+  const onAdminLogin = () => {
+    localStorage.setItem("isAdminLoggedIn", "true");
+    setIsAdminLoggedIn(true);
+  };
+
+  const onArtistLogin = () => {
+    localStorage.setItem("isArtistLoggedIn", "true");
+    setIsArtistLoggedIn(true);
+  };
+
+  const onCuratorLogin = () => {
+    localStorage.setItem("isCuratorLoggedIn", "true");
+    setIsCuratorLoggedIn(true);
+  };
+
+  const onVisitorLogin = () => {
+    localStorage.setItem("isVisitorLoggedIn", "true");
+    setIsVisitorLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    // Clear all login states and localStorage
+    localStorage.clear();
+    setIsAdminLoggedIn(false);
+    setIsArtistLoggedIn(false);
+    setIsCuratorLoggedIn(false);
+    setIsVisitorLoggedIn(false);
+  };
+
   return (
-    <main className="relative min-h-screen w-screen overflow-x-hidden">
-      <Routes>
-        {/* Define the main route */}
-        <Route
-          path="/"
-          element={
-            <>
-              <NavBar />
-              <Hero />
-              <About />
-              <Features />
-              <Story />
-              <Contact />
-              <Footer />
-            </>
-          }
-        />
-        {/* Define the sign-in route */}
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/artistDashboard" element={<ArtistDashboard />} />
-        <Route path="/adminDashboard" element={<AdminDashboard />} />
-        <Route path="/visitorDashboard" element={<VisitorDashboard />} />
-        <Route path="/curatorDashboard" element={<CuratorDashboard />} />
-        <Route path="*" element={<h1>Not Found</h1>} />
-      </Routes>
-    </main>
+    <div>
+      {(() => {
+        if (isAdminLoggedIn) {
+          return <AdminDashboard onLogout={handleLogout} />;
+        } else if (isArtistLoggedIn) {
+          return <ArtistDashboard onLogout={handleLogout} />;
+        } else if (isCuratorLoggedIn) {
+          return <CuratorDashboard onLogout={handleLogout} />;
+        } else if (isVisitorLoggedIn) {
+          return <VisitorDashboard onLogout={handleLogout} />;
+        } else {
+          return (
+            <Home
+              onAdminLogin={onAdminLogin}
+              onArtistLogin={onArtistLogin}
+              onCuratorLogin={onCuratorLogin}
+              onVisitorLogin={onVisitorLogin}
+            />
+          );
+        }
+      })()}
+    </div>
   );
 }
 

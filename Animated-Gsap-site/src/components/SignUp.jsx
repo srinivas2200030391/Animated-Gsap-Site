@@ -166,7 +166,7 @@ export default function SignUp() {
             <br />
             <input
               type="submit"
-              value="Sign In ➜"
+              value="Sign Up ➜"
               style={{
                 marginTop: "15pt",
                 padding: "10pt",
@@ -179,14 +179,13 @@ export default function SignUp() {
                 backgroundColor: "#D6C9C9",
               }}
             />
-
             <br />
           </form>
           <p
+            align="center"
             style={{
               marginBottom: "-20pt",
               paddingTop: "10pt",
-
               fontSize: "14pt",
               transform: "translateX(0%)",
               fontStyle: "sans-serif",

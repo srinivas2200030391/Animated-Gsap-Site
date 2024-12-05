@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
-import { useNavigate, Link} from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../css/style.css";
 import axios from "axios";
 import config from "../config";
 import { gsap } from "gsap";
-export default function SignIn() {
+export default function SignIn({
+  onAdminLogin,
+  onArtistLogin,
+  onCuratorLogin,
+  onVisitorLogin,
+}) {
   const [formData, setFormData] = useState({
     username: location.state ? location.state.username : "",
     password: "",
@@ -16,7 +21,12 @@ export default function SignIn() {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.id]: event.target.value });
   };
-
+  const loginFunctions = {
+    admin: onAdminLogin,
+    visitor: onVisitorLogin,
+    artist: onArtistLogin,
+    curator: onCuratorLogin,
+  };
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
@@ -25,6 +35,7 @@ export default function SignIn() {
       if (response) {
         console.log(response.data);
         const loc = "/" + response.data.user.role.toLowerCase() + "Dashboard";
+        loginFunctions[response.data.user.role.toLowerCase]();
         navigate(loc);
       } else {
         setMessage("Sign In Failed");
@@ -179,7 +190,6 @@ export default function SignIn() {
             style={{
               marginBottom: "-20pt",
               paddingTop: "10pt",
-
               fontSize: "14pt",
               transform: "translateX(0%)",
               fontStyle: "sans-serif",
