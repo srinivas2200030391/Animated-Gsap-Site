@@ -91,8 +91,7 @@ export default function SignUp() {
         }}>
         <img src="img/SignIn.png" alt="Photo" className="rounded-md" />
       </div>
-      <div
-        className="form bg-white w-[90%] md:w-[70%] lg:w-[43%] lg:mr-[10%] rounded-[20pt] p-[29pt] h-[89%] translate-y-[-2]">
+      <div className="form bg-white w-[90%] md:w-[70%] lg:w-[43%] lg:mr-[10%] rounded-[20pt] p-[29pt] h-[89%] translate-y-[-2]">
         <h3 className="text-[30pt] font-bold font-sans-serif mt-[-5%]  !text-black special-font">
           <b>S</b>i<b>g</b>
           <b>n</b> <b>u</b>
@@ -194,7 +193,7 @@ export default function SignUp() {
             }}>
             Already have an account?
             <a
-              href="sign-in"
+              href="signin"
               style={{
                 paddingLeft: "5pt",
                 color: "#FF4500",

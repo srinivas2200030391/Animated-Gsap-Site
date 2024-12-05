@@ -187,7 +187,7 @@ export default function Signin() {
             }}>
             Don't have an account?
             <a
-              href="sign-up"
+              href="signup"
               style={{
                 paddingLeft: "5pt",
                 color: "#FF4500",
