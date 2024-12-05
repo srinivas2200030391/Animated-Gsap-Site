@@ -5,7 +5,7 @@ import axios from "axios";
 import config from "../config";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-export default function Signin() {
+export default function SignIn() {
   const [formData, setFormData] = useState({
     username: location.state ? location.state.username : "",
     password: "",
