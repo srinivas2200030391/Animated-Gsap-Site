@@ -1,0 +1,18 @@
+{
+  "hosting": {
+    "public": "dist",
+    "site": "imaginariumtheatre",
+    "ignore": ["firebase.json", "/.*", "/node_modules/"],
+    "headers": [
+      {
+        "source": "/*.@(js|mjs|jsx)",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/javascript"
+          }
+        ]
+      }
+    ]
+  }
+}

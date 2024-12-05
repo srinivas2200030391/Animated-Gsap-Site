@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import "../css/style.css";
 import axios from "axios";
 import config from "../config";
-import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -80,15 +79,24 @@ export default function SignUp() {
     <div className="signinpage bg-[#eee8e8] h-screen">
       <div
         className="image hidden md:block w-[31%] mt-[30pt]"
+        role="img"
+        tabIndex="0"
         onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}>
+        onMouseLeave={handleMouseLeave}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            handleMouseMove(e);
+          }
+        }}>
         <img src="img/SignIn.png" alt="Photo" className="rounded-md" />
       </div>
       <div
-        className="form bg-white w-[90%] md:w-[70%] lg:w-[43%] lg:mr-[10%] rounded-[20pt] p-[29pt] h-[89%] translate-y-[-2]"
-        align="center">
+        className="form bg-white w-[90%] md:w-[70%] lg:w-[43%] lg:mr-[10%] rounded-[20pt] p-[29pt] h-[89%] translate-y-[-2]">
         <h3 className="text-[30pt] font-bold font-sans-serif mt-[-5%]  !text-black special-font">
-          <b>S</b>i<b>g</b><b>n</b> <b>u</b><b>p</b>
+          <b>S</b>i<b>g</b>
+          <b>n</b> <b>u</b>
+          <b>p</b>
         </h3>
         <br />
         <Link

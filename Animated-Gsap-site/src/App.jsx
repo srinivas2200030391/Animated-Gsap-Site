@@ -8,10 +8,10 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import SignIn from "./components/SignIn"; // Import the SignIn component
 import SignUp from "./components/SignUp";
-import ArtistDashboard from './components/artistDashboard';
-import AdminDashboard from './components/adminDashboard';
-import VisitorDashboard from './components/visitorDashboard';
-import CuratorDashboard from './components/curatorDashboard';
+import ArtistDashboard from "./components/artistDashboard";
+import AdminDashboard from "./components/adminDashboard";
+import VisitorDashboard from "./components/visitorDashboard";
+import CuratorDashboard from "./components/curatorDashboard";
 
 function App() {
   return (
@@ -33,9 +33,9 @@ function App() {
           }
         />
         {/* Define the sign-in route */}
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/artistDashboard" element={<ArtistDashboard/>} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/artistDashboard" element={<ArtistDashboard />} />
         <Route path="/adminDashboard" element={<AdminDashboard />} />
         <Route path="/visitorDashboard" element={<VisitorDashboard />} />
         <Route path="/curatorDashboard" element={<CuratorDashboard />} />
