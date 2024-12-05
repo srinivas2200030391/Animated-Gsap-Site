@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
-export default function visitorDashboard() {
-  return (
-    <div>visitorDashboard</div>
-  )
+export default function VisitorDashboard() {
+  return <div>visitorDashboard</div>;
 }
