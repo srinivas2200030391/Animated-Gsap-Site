@@ -17,7 +17,7 @@ export default function index({
   onAdminLogin,
   onArtistLogin,
   onCuratorLogin,
-  onVisitorLogin,
+  onVisitorLogin, 
 }) {
   return (
     <div>
