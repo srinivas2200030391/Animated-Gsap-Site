@@ -1,9 +1,9 @@
 
-import AdminDashboard from "./components/AdminDashboard.jsx";
-import ArtistDashboard from "./components/ArtistDashboard.jsx";
-import CuratorDashboard from "./components/CuratorDashboard.jsx";
-import VisitorDashboard from "./components/VisitorDashboard.jsx";
-import Home from "./Home/index.jsx";
+import AdminDashboard from "./components/AdminDashboard";
+import ArtistDashboard from "./components/ArtistDashboard";
+import CuratorDashboard from "./components/CuratorDashboard";
+import VisitorDashboard from "./components/VisitorDashboard";
+import Home from "./Home/index";
 import { useEffect, useState } from "react";
 
 
