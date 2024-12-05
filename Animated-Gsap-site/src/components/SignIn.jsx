@@ -51,6 +51,8 @@ export default function SignIn({
       { opacity: 0, x: -100 },
       { opacity: 1, x: 0, duration: 1, ease: "power2.inOut" }
     );
+    console.log("Sign In Page");
+    
   }, []);
   useEffect(() => {
     gsap.fromTo(
@@ -86,8 +88,10 @@ export default function SignIn({
       ease: "power3.out",
     });
   };
+
   return (
     <div className="signinpage bg-[#eee8e8] h-screen">
+      
       <div
         className="image hidden md:block w-[31%] mt-[30pt]"
         onMouseMove={handleMouseMove}
