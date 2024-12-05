@@ -4,6 +4,8 @@ import { TiBrush } from "react-icons/ti";
 import { useWindowScroll } from "react-use";
 import gsap from "gsap";
 const navItems = ["Home", "About", "Features", "Story", "Contact"];
+import { FaTimes } from "react-icons/fa";
+import { FaBars } from "react-icons/fa6";
 export default function NavBar() {
   const [isAudioPlaying, SetIsAudioPlaying] = React.useState(false);
   const [isIndicatorActive, setIsIndicatorActive] = React.useState(false);
@@ -11,6 +13,11 @@ export default function NavBar() {
   const [isNavVisible, setIsNavVisible] = React.useState(true);
   const navContainerRef = useRef(null);
   const audioElementRef = useRef(null);
+  const barsRef = useRef(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   const { y: currentScrollY } = useWindowScroll();
   useEffect(() => {
@@ -20,9 +27,11 @@ export default function NavBar() {
     } else if (currentScrollY > lastScrollY) {
       setIsNavVisible(false);
       navContainerRef.current.classList.add("floating-nav");
+
     } else if (currentScrollY < lastScrollY) {
       setIsNavVisible(true);
       navContainerRef.current.classList.add("floating-nav");
+
     }
     setLastScrollY(currentScrollY);
   }, [currentScrollY, lastScrollY]);
@@ -34,6 +43,7 @@ export default function NavBar() {
       duration: 0.2,
     });
   }, [isNavVisible]);
+
   const toggleAudioIndicator = () => {
     SetIsAudioPlaying((prev) => !prev);
     setIsIndicatorActive((prev) => !prev);
@@ -75,6 +85,8 @@ export default function NavBar() {
               containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
             />
           </div>
+
+          {/*PC Menu */}
           <div className="flex h-full items-center">
             <div className="hidden md:block">
               {navItems.map((item) => (
@@ -91,8 +103,9 @@ export default function NavBar() {
                 </a>
               ))}
             </div>
+
             <button
-              className="ml-10 flex items-center space-x-0.5"
+              className="ml-10 flex items-center space-x-0.5 "
               onClick={toggleAudioIndicator}>
               <audio
                 ref={audioElementRef}
@@ -102,6 +115,7 @@ export default function NavBar() {
               />
               {[1, 2, 3, 4].map((bar) => (
                 <div
+                  ref={barsRef}
                   key={bar}
                   className={`indicator-line ${
                     isIndicatorActive ? "active" : ""
