@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, Link} from "react-router-dom";
 import "../css/style.css";
 import axios from "axios";
 import config from "../config";
-import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 export default function SignIn() {
   const [formData, setFormData] = useState({

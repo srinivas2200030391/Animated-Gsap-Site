@@ -11,7 +11,7 @@ export default function Button({
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate("/sign-in"); // Navigate to the Sign-In page
+    navigate("/signin"); // Navigate to the Sign-In page
   };
 
   return (
