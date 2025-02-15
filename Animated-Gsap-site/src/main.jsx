@@ -5,9 +5,11 @@ import "./index.css";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
+  <div className="w-full overflow-x-hidden">
   <BrowserRouter>
     <StrictMode>
       <App />
     </StrictMode>
   </BrowserRouter>
+    </div>
 );
